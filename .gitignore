@@ -1,0 +1,45 @@
+# === Datos y artefactos pesados (viven solo en la maquina de ejecucion) ===
+data/*
+!data/.gitkeep
+checkpoints/*
+!checkpoints/.gitkeep
+submissions/*.csv
+submissions/*.zip
+outputs/
+cache/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.npy
+*.npz
+
+# === Modelos de evaluacion descargados ===
+BLEURT-20/
+bleurt/
+alignscore_ckpts/
+*.bin
+
+# === Experiment tracking ===
+wandb/
+mlruns/
+lightning_logs/
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# === OS / IDE ===
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# === OneDrive: evita conflictos de sincronizacion del repo git ===
+# (ver README: se recomienda excluir esta carpeta de OneDrive en la maquina 3070)

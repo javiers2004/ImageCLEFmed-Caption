@@ -1,0 +1,31 @@
+# Configuracion base (comun a todas las maquinas y experimentos).
+# Se fusiona en tiempo de ejecucion con la config de la maquina (machines.yaml).
+project: imageclef-caption-2025
+seed: 42
+
+# Rutas relativas a machine.data_dir (resuelto por src/utils/config.py)
+data:
+  train_images: train/images
+  valid_images: valid/images
+  test_images: test/images
+  train_concepts: train_concepts.csv
+  valid_concepts: valid_concepts.csv
+  train_captions: train_captions.csv
+  valid_captions: valid_captions.csv
+  concepts_vocab: concepts_vocab.csv
+
+# --- Fase 2: Concept Detection (placeholders, se afinan en su fase) ---
+concepts:
+  image_size: 224
+  backbone: efficientnet_b0
+  epochs: 15
+  lr: 3.0e-4
+  threshold: 0.5
+
+# --- Fase 3: Caption Prediction (placeholders) ---
+captions:
+  max_length: 128
+  model: Salesforce/blip-image-captioning-base
+  epochs: 5
+  lr: 1.0e-5
+  concept_conditioning: true

@@ -1,0 +1,37 @@
+# ===========================================================================
+# ImageCLEFmed Caption 2025 - dependencias (instalar DESPUES de PyTorch)
+# ---------------------------------------------------------------------------
+# PyTorch se instala aparte con el indice CUDA correcto (ver README):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+# ===========================================================================
+
+# --- Core / datos ---
+numpy<2.0
+pandas
+pillow
+opencv-python-headless
+albumentations
+scikit-learn
+tqdm
+omegaconf
+pyyaml
+
+# --- Modelos de vision y VLMs ---
+timm
+transformers>=4.44
+accelerate
+peft
+bitsandbytes            # QLoRA 4-bit (solo Linux/Windows con CUDA)
+sentencepiece
+open_clip_torch
+
+# --- Evaluacion de captions (metricas oficiales) ---
+bert-score
+rouge-score
+# BLEURT y AlignScore se instalan desde sus repos (ver src/eval/README.md)
+# MedCAT / QuickUMLS requieren descarga de modelos UMLS (ver src/eval/README.md)
+
+# --- Tracking / utilidades ---
+wandb
+matplotlib
+seaborn

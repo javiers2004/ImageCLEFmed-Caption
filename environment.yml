@@ -1,0 +1,12 @@
+# Entorno conda base. La pila de ML se instala luego con pip (ver README).
+# Crear con:  conda env create -f environment.yml
+#             conda activate imageclef-caption
+name: imageclef-caption
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - git
+  - pip:
+      - -r requirements.txt

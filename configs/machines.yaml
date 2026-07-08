@@ -1,0 +1,34 @@
+# Config por-maquina, indexada por hostname (socket.gethostname()).
+# Ejecuta `python scripts/check_env.py` en cada maquina para ver su hostname.
+machines:
+
+  # Portatil de desarrollo (GTX 1650 Ti, 4 GB). Solo smoke tests / depuracion.
+  LAPTOP-VJR4VD4I:
+    role: dev
+    data_dir: ./data
+    checkpoints_dir: ./checkpoints
+    batch_size: 4
+    num_workers: 2
+    device: cuda        # cae a cpu automaticamente si no hay CUDA
+    smoke: true          # limita a un puñado de muestras
+
+  # >>> MAQUINA DE EJECUCION (RTX 3070, 8 GB + 32 GB RAM) <<<
+  # Sustituye la clave por el hostname real que muestre check_env.py en esa maquina.
+  EXEC-3070:
+    role: exec
+    data_dir: D:/datasets/rocov2   # ajustar a la ruta real de ROCOv2
+    checkpoints_dir: ./checkpoints
+    batch_size: 16
+    num_workers: 8
+    device: cuda
+    smoke: false
+
+# Fallback si el hostname no aparece arriba.
+default:
+  role: unknown
+  data_dir: ./data
+  checkpoints_dir: ./checkpoints
+  batch_size: 4
+  num_workers: 2
+  device: cuda
+  smoke: true
